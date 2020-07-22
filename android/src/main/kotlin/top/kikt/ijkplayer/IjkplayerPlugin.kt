@@ -1,4 +1,4 @@
-package top.kikt.ijkplayer2
+package top.kikt.ijkplayer
 
 import android.content.Context
 import android.media.AudioManager
@@ -8,13 +8,14 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
+import top.kikt.ijkplayer2.IjkManager
 import tv.danmaku.ijk.media.player.IjkMediaPlayer
 
 
 /**
  * Ijkplayer2Plugin
  */
-class Ijkplayer2Plugin(private val registrar: Registrar) : MethodCallHandler {
+class IjkplayerPlugin(private val registrar: Registrar) : MethodCallHandler {
     
     override fun onMethodCall(call: MethodCall, result: Result) {
         IjkMediaPlayer.loadLibrariesOnce(null)
@@ -159,7 +160,7 @@ class Ijkplayer2Plugin(private val registrar: Registrar) : MethodCallHandler {
         @JvmStatic
         fun registerWith(registrar: Registrar) {
             val channel = MethodChannel(registrar.messenger(), "top.kikt/ijkplayer")
-            channel.setMethodCallHandler(Ijkplayer2Plugin(registrar))
+            channel.setMethodCallHandler(IjkplayerPlugin(registrar))
             manager = IjkManager(registrar)
         }
     }
