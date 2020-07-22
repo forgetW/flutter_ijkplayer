@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); 
     Future.delayed(Duration.zero, () {
       isInitPlugin = true;
       setState(() {});
