@@ -2,6 +2,7 @@ package top.kikt.ijkplayer
 
 import android.content.Context
 import android.media.AudioManager
+import android.util.Log
 import android.view.WindowManager
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -19,7 +20,11 @@ class IjkplayerPlugin(private val registrar: Registrar) : MethodCallHandler {
     
     override fun onMethodCall(call: MethodCall, result: Result) {
         IjkMediaPlayer.loadLibrariesOnce(null)
-        IjkMediaPlayer.native_profileBegin("libijkplayer2.so")
+        try {
+            IjkMediaPlayer.native_profileBegin("libijkplayer2.so")
+        }catch (e : Exception){
+            Log.e("IjkMediaPlayer", "加载so失败-单个-" + e.message)
+        }
         handleMethodCall(call, result)
     }
     

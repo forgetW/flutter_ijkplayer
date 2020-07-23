@@ -190,9 +190,13 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                 if (libLoader == null)
                     libLoader = sLocalLibLoader;
 
-                libLoader.loadLibrary("ijkffmpeg2");
-                libLoader.loadLibrary("ijksdl2");
-                libLoader.loadLibrary("ijkplayer2");
+                try {
+                    libLoader.loadLibrary("ijkffmpeg2");
+                    libLoader.loadLibrary("ijksdl2");
+                    libLoader.loadLibrary("ijkplayer2");
+                }catch (Exception e){
+                    Log.e("IjkMediaPlayer", "加载so失败--" + e.getMessage());
+                }
                 mIsLibLoaded = true;
             }
         }
