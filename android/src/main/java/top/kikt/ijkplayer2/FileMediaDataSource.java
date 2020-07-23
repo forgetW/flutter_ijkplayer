@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
+import tv.danmaku.ijk.media.player2.misc.IMediaDataSource;
 
 public class FileMediaDataSource implements IMediaDataSource {
     private RandomAccessFile mFile;

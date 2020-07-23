@@ -2,7 +2,7 @@ package top.kikt.ijkplayer2
 
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.PluginRegistry
-import tv.danmaku.ijk.media.player.IMediaPlayer
+import tv.danmaku.ijk.media.player2.IMediaPlayer
 
 class NotifyChannel(val registry: PluginRegistry.Registrar, val textureId: Long, val ijk: Ijk) {
 
